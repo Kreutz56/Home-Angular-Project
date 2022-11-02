@@ -20,7 +20,6 @@ export class AccountService extends BaseService {
                 catchError(this.serviceError)
             );
         return response;
-
     }
 
     loginUser(user: User) {

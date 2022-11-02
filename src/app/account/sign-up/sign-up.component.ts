@@ -12,8 +12,9 @@ export class SignUpComponent implements OnInit {
 
   signUpForm: FormGroup;
   user: User;
+
   constructor(private formBuilder: FormBuilder,
-    private accountService: AccountService) { }
+              private accountService: AccountService) {}
 
   ngOnInit(): void {
     this.signUpForm = this.formBuilder.group({
@@ -33,7 +34,6 @@ export class SignUpComponent implements OnInit {
           success => { this.processSuccess(success) },
           fail => { this.processFail(fail) }
         )
-
     }
   }
 
