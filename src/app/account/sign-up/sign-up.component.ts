@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { User } from "../models/user";
+import { AccountService } from "../services/account.service";
 
 
 @Component({
@@ -7,9 +10,27 @@ import { Component, OnInit } from "@angular/core";
 })
 
 export class SignUpComponent implements OnInit {
-  constructor() {}
+
+  signUpForm: FormGroup;
+  user: User;
+
+  constructor(private formBuilder: FormBuilder,
+              private accountService: AccountService) {}
 
   ngOnInit(): void {
+    this.signUpForm = this.formBuilder.group({
+      email: [''],
+      password: [''],
+      confirmPassword: ['']
+    });
+  }
+
+  addAccount() {
+    if(this.signUpForm.dirty && this.signUpForm.valid) {
+      this.user = Object.assign({}, this.user, this.signUpForm.value)
+      
+      this.accountService.registerUser(this.user);
     
+    }
   }
 }
