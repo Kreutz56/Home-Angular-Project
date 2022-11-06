@@ -7,7 +7,10 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'account',
     loadChildren: () => import('./account/account.module')
-    .then(m => m.AccountModule )}
+    .then(m => m.AccountModule )},
+  { path: 'market',
+    loadChildren: () => import('./market/market.module')
+    .then(m => m.MarketModule )}
 ];
 
 @NgModule({
