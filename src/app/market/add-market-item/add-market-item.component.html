@@ -1,8 +1,11 @@
 <form [formGroup]="marketForm" (ngSubmit)="onSubmit()">
     <div class="form-group d-flex fle">
         <div class="form-group">
-            <input class="form-control" type="text" name="market-item" placeholder="Market Item"
+            <input class="form-control" [ngClass]="{'is-invalid': !marketForm.get('marketItem')!.valid && marketForm.get('marketItem')!.dirty}" type="text" name="market-item" placeholder="Market Item"
                 formControlName="marketItem">
+            <div class="invalid-feedback">
+                Please choose a username.
+            </div>
         </div>
         <button type="submit" class="btn btn-primary mx-2">Add to market list</button>
     </div>

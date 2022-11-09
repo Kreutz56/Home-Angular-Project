@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MarketItem } from "../models/MarketItem";
 import { MarketService } from "../services/market.service";
 
@@ -20,7 +20,7 @@ export class AddMarketItemComponent implements OnInit {
 
     ngOnInit(): void {
         this.marketForm = this.formBuilder.group({
-            marketItem: ['']
+            marketItem: ['', Validators.required]
         });
     }
 
