@@ -1,4 +1,9 @@
-<form [formGroup]="marketForm">
-    <input type="text" name="market-item" placeholder="Market Item" formControlName="marketItem">
-    <button type="submit">Add to market list</button>
+<form [formGroup]="marketForm" (ngSubmit)="onSubmit()">
+    <div class="form-group d-flex fle">
+        <div class="form-group">
+            <input class="form-control" type="text" name="market-item" placeholder="Market Item"
+                formControlName="marketItem">
+        </div>
+        <button type="submit" class="btn btn-primary mx-2">Add to market list</button>
+    </div>
 </form>

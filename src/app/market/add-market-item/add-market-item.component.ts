@@ -24,7 +24,6 @@ export class AddMarketItemComponent implements OnInit {
         });
     }
 
-    addMarketItem(item: MarketItem) {
-
+    onSubmit() {
     }
 }
